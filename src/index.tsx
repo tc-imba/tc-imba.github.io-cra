@@ -14,7 +14,8 @@ import { Provider } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
 import * as serviceWorker from 'serviceWorker';
 
-import 'sanitize.css/sanitize.css';
+// import 'sanitize.css/sanitize.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Initialize languages
 import './locales/i18n';
@@ -43,15 +44,18 @@ interface Props {
   Component: typeof App;
 }
 const ConnectedApp = ({ Component }: Props) => (
-  <Provider store={store}>
-    <ThemeProvider>
-      <HelmetProvider>
-        <React.StrictMode>
-          <Component />
-        </React.StrictMode>
-      </HelmetProvider>
-    </ThemeProvider>
-  </Provider>
+  <>
+    <CssBaseline />
+    <Provider store={store}>
+      <ThemeProvider>
+        <HelmetProvider>
+          <React.StrictMode>
+            <Component />
+          </React.StrictMode>
+        </HelmetProvider>
+      </ThemeProvider>
+    </Provider>
+  </>
 );
 
 const render = (Component: typeof App) => {
