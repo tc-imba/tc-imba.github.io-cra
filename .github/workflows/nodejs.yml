@@ -27,7 +27,6 @@ jobs:
     - run: npm i -g yarn
     - run: yarn
     - run: yarn build
-    - run: npm test
     - name: Deploy to GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v2
