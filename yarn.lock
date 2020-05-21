@@ -10309,7 +10309,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -10552,7 +10552,7 @@ react-fast-compare@^2.0.4:
 
 react-github-button@tc-imba/react-github-button:
   version "1.0.0"
-  resolved "https://codeload.github.com/tc-imba/react-github-button/tar.gz/046d72c8f1f8316cc33637cc4266c0e574c9c02b"
+  resolved "https://codeload.github.com/tc-imba/react-github-button/tar.gz/fce2dd2ba9be6f43ae43944b1d9b06abd6c25a2b"
 
 react-helmet-async@1.0.4:
   version "1.0.4"
@@ -10697,6 +10697,13 @@ react-transition-group@^4.4.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-typist@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/react-typist/download/react-typist-2.0.5.tgz#9830395a73a03e6368e1392ecb98edaa3a648e44"
+  integrity sha1-mDA5WnOgPmNo4Tkuy5jtqjpkjkQ=
+  dependencies:
+    prop-types "^15.5.10"
 
 react@16.13.0:
   version "16.13.0"

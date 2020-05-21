@@ -3,6 +3,7 @@ export interface Config {
     author: string;
     bio: string;
     logo: string;
+    typewrite: string;
     github?: string;
     location?: string;
     email?: string;

@@ -26,7 +26,10 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import { configureAppStore } from 'store/configureStore';
 
-import { ThemeProvider } from 'styles/theme/ThemeProvider';
+// import { ThemeProvider } from 'styles/theme/ThemeProvider';
+// import {
+//   ThemeProvider,
+// } from '@material-ui/core/styles';
 
 // Observe loading of Inter (to remove 'Inter', remove the <link> tag in
 // the index.html file and this observer)
@@ -47,13 +50,13 @@ const ConnectedApp = ({ Component }: Props) => (
   <>
     <CssBaseline />
     <Provider store={store}>
-      <ThemeProvider>
-        <HelmetProvider>
-          <React.StrictMode>
-            <Component />
-          </React.StrictMode>
-        </HelmetProvider>
-      </ThemeProvider>
+      {/*<ThemeProvider>*/}
+      <HelmetProvider>
+        <React.StrictMode>
+          <Component />
+        </React.StrictMode>
+      </HelmetProvider>
+      {/*</ThemeProvider>*/}
     </Provider>
   </>
 );

@@ -3,7 +3,56 @@ import styled from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 
-export function Nav() {
+import {
+  AppBar,
+  Toolbar,
+  Link,
+  Typography,
+  Tabs,
+  Tab,
+} from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+
+interface Props {
+  page: string;
+}
+
+interface State {
+  tab: number;
+}
+
+const mapPageToTab = {
+  home: 0,
+  profile: 1,
+  posts: 2,
+};
+
+export class Nav extends React.Component<Props, State> {
+  constructor(props: Props, context: any) {
+    super(props, context);
+    this.state = {
+      tab: mapPageToTab.hasOwnProperty(props.page)
+        ? mapPageToTab[props.page]
+        : 0,
+    };
+  }
+
+  render() {
+    return (
+      <AppBar>
+        <Toolbar>
+          <Tabs value={this.state.tab}>
+            <Tab label="Home" component={RouterLink} to="/" />
+            <Tab label="Profile" component={RouterLink} to="/profile" />
+            <Tab label="Posts" component={RouterLink} to="/posts" />
+          </Tabs>
+        </Toolbar>
+      </AppBar>
+    );
+  }
+}
+
+export function Nav2() {
   return (
     <Wrapper>
       <Item

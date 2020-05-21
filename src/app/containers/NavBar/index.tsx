@@ -1,43 +1,55 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-import { Logo } from './Logo';
-import { StyleConstants } from 'styles/StyleConstants';
-import { Nav } from './Nav';
-import { PageWrapper } from '../../components/PageWrapper';
+import { AppBar, Tab, Tabs, Toolbar, Container } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 
-export function NavBar() {
-  return (
-    <Wrapper>
-      <PageWrapper>
-        <Logo />
-        <Nav />
-      </PageWrapper>
-    </Wrapper>
-  );
+interface Props {
+  page?: 'home' | 'profile' | 'posts';
 }
 
-const Wrapper = styled.header`
-  box-shadow: 0 1px 0 0 ${p => p.theme.borderLight};
-  height: ${StyleConstants.NAV_BAR_HEIGHT};
-  display: flex;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: ${p => p.theme.background};
-  z-index: 2;
+interface State {
+  tab: number;
+}
 
-  @supports (backdrop-filter: blur(10px)) {
-    backdrop-filter: blur(10px);
-    background-color: ${p =>
-      p.theme.background.replace(
-        /rgba?(\(\s*\d+\s*,\s*\d+\s*,\s*\d+)(?:\s*,.+?)?\)/,
-        'rgba$1,0.75)',
-      )};
+const mapPageToTab = {
+  home: 0,
+  profile: 1,
+  posts: 2,
+};
+
+export class NavBar extends React.Component<Props, State> {
+  static defaultProps = {
+    page: '',
+  };
+
+  getTabFromPage(page: string) {
+    if (mapPageToTab.hasOwnProperty(page)) {
+      return mapPageToTab[page];
+    }
+    return false;
   }
 
-  ${PageWrapper} {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  constructor(props: Props, context: any) {
+    super(props, context);
+    this.state = {
+      tab: this.getTabFromPage(props.page || ''),
+    };
   }
-`;
+
+  render() {
+    return (
+      <header>
+        <AppBar position="static">
+          <Container>
+            <Toolbar>
+              <Tabs value={this.state.tab}>
+                <Tab label="Home" component={RouterLink} to="/" />
+                <Tab label="Profile" component={RouterLink} to="/profile" />
+                <Tab label="Posts" component={RouterLink} to="/posts" />
+              </Tabs>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </header>
+    );
+  }
+}

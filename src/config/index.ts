@@ -5,6 +5,8 @@ const config: Config = {
     author: 'Yihao Liu',
     bio: 'PhD Student, Full Stack Web Developer',
     logo: 'profile.png',
+    typewrite:
+      'a CS PhD Student in systems, also interested in full-stack web development.',
     github: 'tc-imba',
     location: 'Singapore',
     email: 'liuyh970615@gmail.com',

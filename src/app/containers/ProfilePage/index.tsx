@@ -7,7 +7,7 @@ import { Box, Grid } from '@material-ui/core';
 
 import { PageWrapper } from 'app/components/PageWrapper';
 import { CodingActivity } from 'app/components/CodingActivity';
-import { Profile } from 'app/components/Profile';
+import { ProfileCard } from 'app/components/Profile';
 
 export function ProfilePage() {
   return (
@@ -16,12 +16,12 @@ export function ProfilePage() {
         <title>Profile</title>
         <meta name="description" content="profile page" />
       </Helmet>
-      <NavBar />
+      <NavBar page="profile" />
       <PageWrapper>
-        <Grid container>
-          <Grid item md={4} spacing={3}>
+        <Grid container spacing={3}>
+          <Grid item md={4}>
             <Box mb={3}>
-              <Profile />
+              <ProfileCard />
             </Box>
             <Box my={3}>
               <CodingActivity wakatimeType="activity" link="/profile/code" />
