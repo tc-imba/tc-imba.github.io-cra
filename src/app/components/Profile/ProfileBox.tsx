@@ -29,9 +29,7 @@ export class ProfileBox extends React.Component {
         </Box>
         <Box my={1}>
           <Typography variant="h6" align="center">
-            <Typist>
-              {config.info.typewrite}
-            </Typist>
+            <Typist>{config.info.typewrite}</Typist>
           </Typography>
         </Box>
         {config.info.github ? (
