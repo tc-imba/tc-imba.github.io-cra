@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { NavBar } from '../NavBar';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { ProfileBox } from 'app/components/Profile';
+import { PostList } from '../../components/PostList';
 
 export function HomePage() {
   return (
@@ -17,6 +18,7 @@ export function HomePage() {
       <NavBar page="home" />
       <PageWrapper>
         <ProfileBox />
+        <PostList />
       </PageWrapper>
     </>
   );

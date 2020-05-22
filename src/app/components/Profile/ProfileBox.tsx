@@ -13,7 +13,7 @@ export class ProfileBox extends React.Component {
       <Box>
         <Grid container justify="center">
           <Grid item xs={9} md={2}>
-            <Box display="flex" justifyContent="center">
+            <Box my={2} display="flex" justifyContent="center">
               <img
                 src={`${process.env.PUBLIC_URL}/${config.info.logo}`}
                 alt=""
@@ -27,13 +27,13 @@ export class ProfileBox extends React.Component {
             Hi, I am {config.info.author} !
           </Typography>
         </Box>
-        <Box my={1}>
+        <Box my={2}>
           <Typography variant="h6" align="center">
             <Typist>{config.info.typewrite}</Typist>
           </Typography>
         </Box>
         {config.info.github ? (
-          <GitHubFollowButton namespace={config.info.github} />
+          <GitHubFollowButton size="large" namespace={config.info.github} />
         ) : null}
       </Box>
     );
