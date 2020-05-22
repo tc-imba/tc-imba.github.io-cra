@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardActionArea,
 } from '@material-ui/core';
-import config from 'config';
+import { config } from 'config';
 import { Link } from 'react-router-dom';
 
 type WakatimeType = 'activity' | 'language' | 'editor' | 'os';

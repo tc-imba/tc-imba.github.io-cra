@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 
-import config from 'config';
+import { config } from 'config';
 import { GitHubFollowButton } from './GitHubFollowButton';
 
 export class ProfileBox extends React.Component {

@@ -1,4 +1,5 @@
 .idea
+src/appdata.json
 
 # Don't check auto-generated stuff into git
 coverage

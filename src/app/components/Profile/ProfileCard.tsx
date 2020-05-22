@@ -13,7 +13,7 @@ import 'react-github-button/src/styles.css';
 import { GitHubFollowButton } from './GitHubFollowButton';
 import { Info } from './Info';
 
-import config from 'config';
+import { config } from 'config';
 
 export class ProfileCard extends React.Component {
   render() {
