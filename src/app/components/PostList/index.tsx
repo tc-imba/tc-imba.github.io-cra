@@ -10,7 +10,7 @@ import {
   ListItemText,
   Avatar,
 } from '@material-ui/core';
-import { Image } from '@material-ui/icons';
+import { Icon } from '@material-ui/core';
 
 import appdata from 'appdata.json';
 import { Post as PostType } from 'types/Post';
@@ -28,14 +28,18 @@ export class PostList extends React.Component<Props, State> {
   }
 
   post(post: PostType) {
+    let secondary = post.date;
+    if (post.abstract) {
+      secondary += ' - ' + post.abstract;
+    }
     return (
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <Image />
+            <Icon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={post.title} secondary={post.date} />
+        <ListItemText primary={post.title} secondary={secondary} />
       </ListItem>
     );
   }

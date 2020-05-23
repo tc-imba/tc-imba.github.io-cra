@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const walk = require('walk');
+const yaml = require('yaml');
+const capitalCase = require('capital-case').capitalCase;
 
 const paths = require('./paths');
 
@@ -58,11 +60,37 @@ const parseFile = function (dir, filename) {
   const filepath = path.join(dir, filename);
   const ext = path.extname(filename);
   if (ext === '.md') {
-    const [date, title] = parseDateTitle(dir, filename);
-    if (date && title) {
+    const [date, name] = parseDateTitle(dir, filename);
+    if (date && name) {
+      let title = capitalCase(name.replace(/-/g, ' '));
+      let abstract = '';
+      let type = 'post';
+      try {
+        const file = fs.readFileSync(
+          path.join(paths.postsSrc, filepath),
+          'utf-8',
+        );
+        const matched = file.match(/^---([^-]+)---/);
+        if (matched) {
+          const meta = yaml.parse(matched[1]);
+          if (meta.hasOwnProperty('title')) {
+            title = meta.title;
+          }
+          if (meta.hasOwnProperty('abstract')) {
+            abstract = meta.abstract;
+          }
+          if (meta.hasOwnProperty('type')) {
+            type = meta.type;
+          }
+        }
+      } catch (e) {}
+
       posts.push({
         date: date,
+        name: name,
         title: title,
+        abstract: abstract,
+        type: type,
         path: filepath.replace(/\\/g, '/'),
       });
       // console.log(date, title);
@@ -72,7 +100,7 @@ const parseFile = function (dir, filename) {
   }
 };
 
-const walker = walk.walkSync(paths.postsSrc, options);
+walk.walkSync(paths.postsSrc, options);
 console.log(posts);
 
 module.exports = posts;
